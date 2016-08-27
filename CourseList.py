@@ -13,4 +13,7 @@ for row in soup.find_all("tr"):
     course_id = cells[0].getText() 
     if course_id.isdigit(): fall.append(course_id)
 
-
+class Webscraper(object):
+    def __init__(self):
+        self.fallCourseUrl = "https://enr-apps.as.cmu.edu/assets/SOC/sched_layout_fall.htm"
+        self.springCourseUrl = "https://enr-apps.as.cmu.edu/assets/SOC/sched_layout_spring.htm"
