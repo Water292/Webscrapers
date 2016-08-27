@@ -2,25 +2,6 @@ from bs4 import BeautifulSoup
 import requests
 import json
 
-# fall = list()
-
-# fallCourseUrl = "https://enr-apps.as.cmu.edu/assets/SOC/sched_layout_fall.htm"
-# fallCoursePage = requests.get(fallCourseUrl)
-
-# soup = BeautifulSoup(fallCoursePage.text, "html.parser")
-
-# for row in soup.find_all("tr"):
-#     cells = row.findAll('td')
-#     course_id = cells[0].getText() 
-#     if course_id.isdigit(): fall.append(course_id)
-
-# class Webscraper(object):
-#     def __init__(self, semester, year):
-#         with open("courseList.json") as courses:
-#             self.currentCourses = json.load(courses)
-#             courses.close()
-#         self.semester = semester
-#         self.year = year
 fallCourseUrl = "https://enr-apps.as.cmu.edu/assets/SOC/sched_layout_fall.htm"
 springCourseUrl = "https://enr-apps.as.cmu.edu/assets/SOC/sched_layout_spring.htm"
 
@@ -38,7 +19,5 @@ def updateCourseList(semester):
         if course_id.isdigit(): semesterCourses.append(course_id) 
     allCourses[semester] = semesterCourses
     with open("courseList.json", "w") as courses:
-        courses.write(json.dumps(allCourses))
+        courses.write(json.dumps(allCourses, indent = 2))
         courses.close()
-
-
